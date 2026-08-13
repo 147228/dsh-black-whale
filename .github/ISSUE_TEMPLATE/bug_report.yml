@@ -1,0 +1,51 @@
+name: Bug report
+description: 报告 DSH 兼容性、视觉或安装问题
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: 请勿粘贴 API Key、凭据、私有会话内容或完整配置文件。
+  - type: input
+    id: dsh-version
+    attributes:
+      label: DeepSeek Harness version
+      placeholder: 0.1.0-rc.6
+    validations:
+      required: true
+  - type: input
+    id: node-version
+    attributes:
+      label: Node.js version
+      placeholder: 24.x
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options: [macOS, Windows, Linux, Other]
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      description: 请提供最小复现步骤，并对截图中的私有会话和路径做脱敏。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I restarted `dsh web` and performed a hard refresh.
+          required: true
+        - label: I confirmed that no other global DSH skin is enabled.
+          required: true

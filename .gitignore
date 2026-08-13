@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.DS_Store
+*.tgz
+src/client/art.generated.ts
+
+# Local acceptance evidence may contain workspace or session names.
+REAL_PROFILE_ACCEPTANCE.md
+design-qa.md
+preview/real-profile*.png

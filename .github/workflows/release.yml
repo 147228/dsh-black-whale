@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install pnpm
+        run: npm install --global pnpm@11.19.0
+      - name: Install and verify
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm check
+      - name: Pack
+        run: |
+          mkdir release
+          pnpm pack --pack-destination release
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "$GITHUB_REF_NAME" release/*.tgz --verify-tag --generate-notes --title "Black Whale Lab $GITHUB_REF_NAME"

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#050506" />
+    <title>夕小瑶 · 黑鲸实验室</title>
+    <link rel="icon" href="/assets/dsh-black-whale.png" />
+    <link rel="stylesheet" href="/preview/styles.css" />
+  </head>
+  <body>
+    <div class="ambient" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="黑鲸实验室首页">
+        <img src="/assets/dsh-black-whale.png" alt="" />
+        <span>
+          <strong>BLACK WHALE LAB</strong>
+          <small>XIAOYAO / DSH · 02</small>
+        </span>
+      </a>
+      <div class="model-status" aria-label="当前模型">
+        <span class="status-dot"></span>
+        DeepSeek V4 Pro
+      </div>
+      <button class="focus-toggle" id="focusToggle" type="button" aria-pressed="false">
+        <span class="focus-dot"></span>
+        <span id="focusLabel">专注模式</span>
+      </button>
+    </header>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <button class="new-session" id="newSession" type="button">新建会话</button>
+
+        <nav aria-label="会话列表">
+          <p class="section-label">TODAY</p>
+          <button class="session active" type="button" data-title="拆解 Harness 插件架构" data-kind="技术研究">
+            <strong>拆解 Harness 插件架构</strong>
+            <span>刚刚</span>
+          </button>
+          <button class="session" type="button" data-title="评估多 Agent 调度差距" data-kind="产品分析">
+            <strong>评估多 Agent 调度差距</strong>
+            <span>18 分钟前</span>
+          </button>
+          <button class="session" type="button" data-title="插件市场调研" data-kind="资料整理">
+            <strong>插件市场调研</strong>
+            <span>1 小时前</span>
+          </button>
+
+          <p class="section-label section-gap">WORKSPACE</p>
+          <button class="workspace" type="button"><span>01</span>deepseek-harness</button>
+          <button class="workspace" type="button"><span>02</span>xiaoyao-content</button>
+        </nav>
+
+        <div class="sidebar-foot">
+          <span class="online"></span>
+          <div>
+            <strong>本地模式</strong>
+            <span>数据留在设备</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="conversation">
+        <header class="conversation-head">
+          <div>
+            <p id="conversationKind">技术研究</p>
+            <h1 id="conversationTitle">拆解 Harness 插件架构</h1>
+          </div>
+          <button class="trace-toggle" id="traceToggle" type="button" aria-expanded="false">查看过程</button>
+        </header>
+
+        <section class="chat-stream" id="chatStream" aria-live="polite">
+          <article class="message user-message">
+            <span class="message-role">你</span>
+            <div>
+              <p>把 DSH 的插件加载方式讲直白一点，重点说明和普通主题包有什么不同。</p>
+            </div>
+          </article>
+
+          <article class="message assistant-message">
+            <span class="message-role whale-role"><img src="/assets/dsh-black-whale.png" alt="" /></span>
+            <div>
+              <p class="answer-lead">最直白地说：它不是“换张壁纸”，而是一个能随时装上、拆下的界面零件。</p>
+              <p>皮肤启用时只写入自己的样式和界面标记；关闭时必须把标题、背景、按钮和状态全部恢复。这样它才不会污染 Harness 本身，也不会影响模型、工具和会话数据。</p>
+              <div class="fact-row">
+                <span><b>01</b>浏览器端加载</span>
+                <span><b>02</b>CSS 作用域隔离</span>
+                <span><b>03</b>完整回滚</span>
+              </div>
+            </div>
+          </article>
+
+          <aside class="trace-panel" id="tracePanel" hidden>
+            <span>REVERSIBLE EFFECT</span>
+            <p>apply → body scope → visual chrome → disposer restore</p>
+          </aside>
+        </section>
+
+        <form class="composer" id="composer">
+          <label for="prompt">继续提问</label>
+          <textarea id="prompt" rows="2" placeholder="输入你想继续研究的问题…"></textarea>
+          <div class="composer-actions">
+            <span>本地皮肤不会读取会话内容</span>
+            <button type="submit">发送</button>
+          </div>
+        </form>
+      </main>
+    </div>
+
+    <footer class="lab-footer" aria-hidden="true">
+      <span>BLACK WHALE</span>
+      <span>SKIN 02</span>
+      <span>LOCAL ONLY</span>
+    </footer>
+
+    <script type="module" src="/preview/main.js"></script>
+  </body>
+</html>

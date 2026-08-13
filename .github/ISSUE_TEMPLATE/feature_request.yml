@@ -1,0 +1,23 @@
+name: Feature request
+description: 提议新的视觉、兼容性或可访问性改进
+title: "[Feature]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Security boundary
+      options:
+        - label: This request can remain a browser-only presentation change.
