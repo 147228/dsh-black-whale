@@ -43,6 +43,8 @@
   },
   "scripts": {
     "embed": "node scripts/embed-assets.mjs",
+    "pretypecheck": "pnpm embed",
+    "pretest": "pnpm embed",
     "prebuild": "pnpm embed",
     "build": "tsdown",
     "check": "pnpm typecheck && pnpm test && pnpm build",
